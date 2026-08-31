@@ -1,11 +1,7 @@
-// Mobile menu toggle
 document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.querySelector('.mobile-menu-btn');
-  const links = document.querySelector('.nav-links');
-
+  const btn = document.getElementById('menuBtn');
+  const links = document.getElementById('navLinks');
   if (btn && links) {
-    btn.addEventListener('click', () => {
-      links.classList.toggle('open');
-    });
+    btn.addEventListener('click', () => links.classList.toggle('open'));
   }
 });

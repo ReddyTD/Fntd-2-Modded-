@@ -1,42 +1,39 @@
-# FNTD Central Remake
+# FNTD Central — Full Static Remake
 
-A clean, modern static remake of [FNTD Central](https://fntd2.com/) — ready for **GitHub Pages**.
+Complete unofficial remake of [fntd2.com](https://fntd2.com/) ready for **GitHub Pages**.
 
-## Features
+## Pages included
 
-- Dark theme matching the original aesthetic
-- Responsive design (mobile + desktop)
-- Homepage with game cards
-- Value List page with search
-- Update Logs page
-- Easy to extend
+| Page | Path |
+|------|------|
+| Home | `index.html` |
+| Value List | `pages/value-list.html` |
+| Update Logs | `pages/updates.html` |
+| Units Database | `pages/database.html` |
+| Enemies | `pages/enemies.html` |
+| Maps | `pages/maps.html` |
+| Tier Lists (Meta) | `pages/meta.html` |
+| Team Comps | `pages/teams.html` |
 
-## How to use on GitHub Pages
+## Deploy to GitHub Pages
 
-1. Create a new repository on GitHub (e.g. `fntd-central`)
-2. Upload all files from this folder
-3. Go to **Settings → Pages**
-4. Set source to `main` branch / root
-5. Your site will be live at `https://YOURUSERNAME.github.io/fntd-central/`
+1. Create a new repo
+2. Upload everything inside the `fntd-central` folder
+3. Settings → Pages → Source = `main` / root
+4. Live at `https://YOURUSERNAME.github.io/REPO-NAME/`
 
 ## Local preview
 
-Just open `index.html` in a browser, or run a simple server:
-
 ```bash
 npx serve .
-# or
-python -m http.server 8000
+# or open index.html
 ```
 
-## Customization
+## Notes
 
-- Edit `css/style.css` for colors and layout
-- Add real unit data in `js/value-list.js`
-- Replace placeholder images with real Roblox thumbnails
-- Add more pages as needed
+- Dark theme matches the original
+- Fully responsive
+- Sample data only (values, units, tiers) — replace with live data as needed
+- Original site is a SPA with live Roblox stats; this is a static mirror of structure + design
 
-## Disclaimer
-
-This is an **unofficial fan project**.  
-Not affiliated with Hyper TD, Roblox, or the original FNTD Central team.
+**Not affiliated with Hyper TD or the original FNTD Central team.**

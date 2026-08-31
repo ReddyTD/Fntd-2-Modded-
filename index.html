@@ -3,131 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home | FNTD Modded Central</title>
-  <meta name="description" content="The place to know everything about FNTD — Five Nights TD Modded & Five Nights TD 2 Modded" />
+  <title>Home | FNTD Central</title>
+  <meta name="description" content="The place to know everything about FNTD — Five Nights TD & Five Nights TD 2" />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://iili.io/qftJu7p.png" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="index.html" class="logo">FNTD <span>CENTRAL</span></a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="index.html" class="active">HOME</a></li>
         <li class="dropdown">
-          <a href="#">DATABASE ▾</a>
+          <a href="pages/database.html">DATABASE ▾</a>
           <ul class="dropdown-menu">
-            <li><a href="#">Units</a></li>
-            <li><a href="#">Enemies</a></li>
-            <li><a href="#">Maps</a></li>
+            <li><a href="pages/database.html">Units Database</a></li>
+            <li><a href="pages/enemies.html">Enemies</a></li>
+            <li><a href="pages/maps.html">Maps</a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#">META ▾</a>
+          <a href="pages/meta.html">META ▾</a>
           <ul class="dropdown-menu">
-            <li><a href="#">Tier Lists</a></li>
-            <li><a href="#">Team Comps</a></li>
+            <li><a href="pages/meta.html">Tier Lists</a></li>
+            <li><a href="pages/teams.html">Team Comps</a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="value-list.html">VALUE LIST ▾</a>
+          <a href="pages/value-list.html">VALUE LIST ▾</a>
           <ul class="dropdown-menu">
-            <li><a href="value-list.html">All Units</a></li>
-            <li><a href="#">Shinies</a></li>
+            <li><a href="pages/value-list.html">All Units</a></li>
+            <li><a href="pages/value-list.html#shinies">Shinies Only</a></li>
           </ul>
         </li>
-        <li><a href="updates.html">UPDATE LOGS</a></li>
-        <li><a href="https://discord.gg/8QQZKTdBHV" target="_blank" rel="noopener">DISCORD</a></li>
+        <li><a href="pages/updates.html">UPDATE LOGS</a></li>
+        <li><a href="https://discord.gg/" target="_blank" rel="noopener">DISCORD</a></li>
       </ul>
-      <button class="mobile-menu-btn" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
-  <!-- Hero -->
   <header class="hero">
-    <h1>FNTD MODDED CENTRAL</h1>
-    <p class="tagline">THE PLACE TO KNOW EVERYTHING ABOUT FNTD MODDED</p>
+    <h1>FNTD CENTRAL</h1>
+    <p class="tagline">THE PLACE TO KNOW EVERYTHING ABOUT FNTD</p>
   </header>
 
-  <!-- Game Cards -->
   <section class="games">
     <div class="game-card">
-      <div class="game-img" style="background-image: url('https://tr.rbxcdn.com/180DAY-e5ec2ece7b3f9fffe3f34dbffd96c16c/512/512/Image/Png/noFilter');">
-        <!-- Replace with real FNTD1 image -->
-      </div>
+      <div class="game-img fntd1"></div>
       <div class="game-info">
-        <h2>FIVE NIGHTS TD MODDED</h2>
+        <h2>FIVE NIGHTS TD</h2>
         <div class="stats">
-          <div class="stat">
-            <span class="label">PLAYERS</span>
-            <span class="value green" id="fntd1-players">~350</span>
-          </div>
-          <div class="stat">
-            <span class="label">VISITS</span>
-            <span class="value purple">754.6M</span>
-          </div>
+          <div class="stat"><span class="label">PLAYERS</span><span class="value green">~350</span></div>
+          <div class="stat"><span class="label">VISITS</span><span class="value purple">754.6M</span></div>
         </div>
       </div>
     </div>
-
     <div class="game-card">
-      <div class="game-img" style="background-image: url('https://tr.rbxcdn.com/180DAY-8d92a6f3ca88f1bd14772f34861680da/512/512/Image/Png/noFilter');">
-        <!-- Replace with real FNTD2 image -->
-      </div>
+      <div class="game-img fntd2"></div>
       <div class="game-info">
-        <h2>FIVE NIGHTS TD 2 MODDED</h2>
+        <h2>FIVE NIGHTS TD 2</h2>
         <div class="stats">
-          <div class="stat">
-            <span class="label">PLAYERS</span>
-            <span class="value green" id="fntd2-players">~4,100</span>
-          </div>
-          <div class="stat">
-            <span class="label">VISITS</span>
-            <span class="value purple">104.8M</span>
-          </div>
+          <div class="stat"><span class="label">PLAYERS</span><span class="value green">~4,000</span></div>
+          <div class="stat"><span class="label">VISITS</span><span class="value purple">104.8M</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Database Section Preview -->
   <section class="section">
-    <div class="section-header">
-      <div class="accent-bar"></div>
-      <h2>DATABASE</h2>
-    </div>
-    <p class="section-desc">Browse units, enemies, maps and more. Full database coming soon in this remake.</p>
+    <div class="section-header"><div class="accent-bar"></div><h2>DATABASE</h2></div>
+    <p class="section-desc">Browse units, enemies, maps and more.</p>
     <div class="card-grid">
-      <a href="#" class="feature-card">
-        <h3>Units</h3>
-        <p>All towers, stats & obtainment methods</p>
-      </a>
-      <a href="value-list.html" class="feature-card">
-        <h3>Value List</h3>
-        <p>Live trading values & demand ratings</p>
-      </a>
-      <a href="updates.html" class="feature-card">
-        <h3>Update Logs</h3>
-        <p>Latest patch notes & changelog</p>
-      </a>
-      <a href="#" class="feature-card">
-        <h3>Meta</h3>
-        <p>Tier lists & recommended team comps</p>
-      </a>
+      <a href="pages/database.html" class="feature-card"><h3>Units</h3><p>All towers, stats & obtainment</p></a>
+      <a href="pages/value-list.html" class="feature-card"><h3>Value List</h3><p>Live trading values & demand</p></a>
+      <a href="pages/updates.html" class="feature-card"><h3>Update Logs</h3><p>Latest patch notes</p></a>
+      <a href="pages/meta.html" class="feature-card"><h3>Meta</h3><p>Tier lists & team comps</p></a>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <p>FNTD Central Remake • Unofficial fan project</p>
     <p>Not affiliated with Hyper TD or Roblox</p>
   </footer>
-
   <script src="js/main.js"></script>
 </body>
 </html>

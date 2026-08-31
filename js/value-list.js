@@ -1,4 +1,3 @@
-// Sample unit data (replace with real data later)
 const units = [
   { name: "Pyro Spring Bonnie", exists: "3.24K", value: "25k-35k", demand: "8.5/10", status: "Slowly Dropping", statusClass: "orange", date: "2026-08-28", shiny: false },
   { name: "SHINY Pyro Spring Bonnie", exists: "709", value: "80k-110k", demand: "8/10", status: "Slowly Dropping", statusClass: "orange", date: "2026-08-28", shiny: true },
@@ -10,12 +9,13 @@ const units = [
   { name: "SHINY Gaia Chica", exists: "6.92K", value: "35k-40k", demand: "8/10", status: "Stable", statusClass: "green", date: "2026-08-28", shiny: true },
   { name: "Kronos Endo Freddy", exists: "27.43K", value: "N/A", demand: "N/A", status: "Stable", statusClass: "green", date: "2026-06-27", shiny: false },
   { name: "SHINY Kronos Endo Freddy", exists: "2.74K", value: "N/A", demand: "N/A", status: "Stable", statusClass: "green", date: "2026-06-27", shiny: true },
+  { name: "Astral Bonnie", exists: "21.83K", value: "25k-35k", demand: "9/10", status: "Unstable", statusClass: "yellow", date: "2026-08-28", shiny: false },
+  { name: "SHINY Astral Bonnie", exists: "967", value: "190k-250k", demand: "8.5/10", status: "Unstable", statusClass: "yellow", date: "2026-08-28", shiny: true },
 ];
 
 function renderUnits(list) {
   const grid = document.getElementById('unit-grid');
   if (!grid) return;
-
   grid.innerHTML = list.map(u => `
     <div class="unit-card ${u.shiny ? 'shiny' : ''}">
       <div class="unit-header">
@@ -26,23 +26,11 @@ function renderUnits(list) {
         </div>
       </div>
       <div class="unit-body">
-        <div>
-          <div class="label">VALUE</div>
-          <div class="val green">${u.value}</div>
-        </div>
-        <div>
-          <div class="label">DEMAND</div>
-          <div class="val">${u.demand}</div>
-        </div>
+        <div><div class="label">VALUE</div><div class="val green">${u.value}</div></div>
+        <div><div class="label">DEMAND</div><div class="val">${u.demand}</div></div>
         <div class="status-row">
-          <div>
-            <div class="label">STATUS</div>
-            <div class="val ${u.statusClass}">${u.status}</div>
-          </div>
-          <div style="text-align:right">
-            <div class="label">LAST UPDATE</div>
-            <div class="val">${u.date}</div>
-          </div>
+          <div><div class="label">STATUS</div><div class="val ${u.statusClass}">${u.status}</div></div>
+          <div style="text-align:right"><div class="label">LAST UPDATE</div><div class="val">${u.date}</div></div>
         </div>
       </div>
     </div>
@@ -51,13 +39,11 @@ function renderUnits(list) {
 
 document.addEventListener('DOMContentLoaded', () => {
   renderUnits(units);
-
   const search = document.getElementById('search');
   if (search) {
-    search.addEventListener('input', (e) => {
+    search.addEventListener('input', e => {
       const q = e.target.value.toLowerCase();
-      const filtered = units.filter(u => u.name.toLowerCase().includes(q));
-      renderUnits(filtered);
+      renderUnits(units.filter(u => u.name.toLowerCase().includes(q)));
     });
   }
 });

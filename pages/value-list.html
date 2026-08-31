@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Value List | FNTD Central</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">FNTD <span>CENTRAL</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">HOME</a></li>
+        <li class="dropdown"><a href="database.html">DATABASE ▾</a>
+          <ul class="dropdown-menu"><li><a href="database.html">Units</a></li><li><a href="enemies.html">Enemies</a></li></ul>
+        </li>
+        <li class="dropdown"><a href="meta.html">META ▾</a>
+          <ul class="dropdown-menu"><li><a href="meta.html">Tier Lists</a></li><li><a href="teams.html">Team Comps</a></li></ul>
+        </li>
+        <li class="dropdown"><a href="value-list.html" class="active">VALUE LIST ▾</a>
+          <ul class="dropdown-menu"><li><a href="value-list.html">All Units</a></li></ul>
+        </li>
+        <li><a href="updates.html">UPDATE LOGS</a></li>
+        <li><a href="https://discord.gg/" target="_blank" rel="noopener">DISCORD</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="menuBtn"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <header class="hero" style="padding-bottom:20px"><h1 style="font-size:clamp(1.6rem,4vw,2.4rem)">VALUE LIST</h1><p class="tagline">TRADING VALUES & DEMAND</p></header>
+  <div class="search-bar"><input type="text" id="search" placeholder="SEARCH UNIT..." /><button class="filters-btn">FILTERS</button></div>
+  <div class="pagination"><button disabled>‹</button><span>PAGE <span class="page-num">1</span> OF 45</span><button>›</button></div>
+  <div class="unit-grid" id="unit-grid"></div>
+  <footer class="footer"><p>FNTD Central Remake • Values are community estimates</p></footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/value-list.js"></script>
+</body>
+</html>
