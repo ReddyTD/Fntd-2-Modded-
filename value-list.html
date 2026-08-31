@@ -1,72 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Value List | FNTD Central</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-</head>
-<body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="logo">FNTD <span>CENTRAL</span></a>
-      <ul class="nav-links">
-        <li><a href="index.html">HOME</a></li>
-        <li class="dropdown">
-          <a href="#">DATABASE ▾</a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Units</a></li>
-            <li><a href="#">Enemies</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#">META ▾</a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Tier Lists</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="value-list.html" class="active">VALUE LIST ▾</a>
-          <ul class="dropdown-menu">
-            <li><a href="value-list.html">All Units</a></li>
-          </ul>
-        </li>
-        <li><a href="updates.html">UPDATE LOGS</a></li>
-        <li><a href="https://discord.gg/" target="_blank" rel="noopener">DISCORD</a></li>
-      </ul>
-      <button class="mobile-menu-btn" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+// Sample unit data (replace with real data later)
+const units = [
+  { name: "Mangle", exists: "1", value: "???", demand: "0/10", status: "???", statusClass: "green", date: "2026-08-31", shiny: false },
+  { name: "Withered Golden Freddy", exists: "1", value: "???", demand: "0/10", status: "???", statusClass: "green", date: "2026-08-31", shiny: false },  { name: "Witch of the Sea Scrapbaby", exists: "19.38K", value: "10k-12.5k", demand: "7.5/10", status: "Stable", statusClass: "green", date: "2026-08-28", shiny: false },
+  { name: "Party Glock Freddy", exists: "1", value: "???", demand: "0/10", status: "???", statusClass: "green", date: "2026-08-31", shiny: false },  { name: "Grand Strategist Chica", exists: "617", value: "420k-445k", demand: "9/10", status: "Unstable", statusClass: "yellow", date: "2026-08-28", shiny: false },
+  { name: "Purple Guy", exists: "1", value: "???", demand: "0/10", status: "???", statusClass: "green", date: "2026-08-31", shiny: false },  { name: "Gaia Chica", exists: "5.32K", value: "20k-25k", demand: "7/10", status: "Unstable", statusClass: "yellow", date: "2026-08-28", shiny: false },
+  { name: "Party Packer Cupcake", exists: "1", value: "???", demand: "0/10", status: "???", statusClass: "green", date: "2026-08-31", shiny: false },  { name: "SHINY Kronos Endo Freddy", exists: "2.74K", value: "N/A", demand: "N/A", status: "Stable", statusClass: "green", date: "2026-06-27", shiny: true },
+];
+
+function renderUnits(list) {
+  const grid = document.getElementById('unit-grid');
+  if (!grid) return;
+
+  grid.innerHTML = list.map(u => `
+    <div class="unit-card ${u.shiny ? 'shiny' : ''}">
+      <div class="unit-header">
+        <div class="unit-icon">${u.shiny ? '✨' : '🐻'}</div>
+        <div>
+          <div class="unit-name">${u.name}</div>
+          <span class="unit-exists">${u.exists} EXISTS</span>
+        </div>
+      </div>
+      <div class="unit-body">
+        <div>
+          <div class="label">VALUE</div>
+          <div class="val green">${u.value}</div>
+        </div>
+        <div>
+          <div class="label">DEMAND</div>
+          <div class="val">${u.demand}</div>
+        </div>
+        <div class="status-row">
+          <div>
+            <div class="label">STATUS</div>
+            <div class="val ${u.statusClass}">${u.status}</div>
+          </div>
+          <div style="text-align:right">
+            <div class="label">LAST UPDATE</div>
+            <div class="val">${u.date}</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </nav>
+  `).join('');
+}
 
-  <header class="hero" style="padding-bottom: 24px;">
-    <h1 style="font-size: clamp(1.8rem, 4vw, 2.5rem);">VALUE LIST</h1>
-    <p class="tagline">TRADING VALUES & DEMAND</p>
-  </header>
+document.addEventListener('DOMContentLoaded', () => {
+  renderUnits(units);
 
-  <div class="search-bar">
-    <input type="text" id="search" placeholder="SEARCH UNIT..." />
-    <button class="filters-btn">FILTERS</button>
-  </div>
-
-  <div class="pagination">
-    <button disabled>‹</button>
-    <span>PAGE <span class="page-num">1</span> OF 45</span>
-    <button>›</button>
-  </div>
-
-  <div class="unit-grid" id="unit-grid">
-    <!-- Cards injected by JS -->
-  </div>
-
-  <footer class="footer">
-    <p>FNTD Central Remake • Unofficial fan project</p>
-    <p>Values are community estimates and change frequently</p>
-  </footer>
-
-  <script src="js/main.js"></script>
-  <script src="js/value-list.js"></script>
-</body>
-</html>
+  const search = document.getElementById('search');
+  if (search) {
+    search.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      const filtered = units.filter(u => u.name.toLowerCase().includes(q));
+      renderUnits(filtered);
+    });
+  }
+});
